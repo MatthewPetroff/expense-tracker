@@ -1,0 +1,37 @@
+body {
+	font-family: Arial;
+}
+
+header {
+	background: black;
+	color: white;
+}
+
+main {
+	background: white;
+	color: black;
+}
+
+footer {
+	background: black;
+	color: black;
+}
+
+ul {
+	list-style-type: none;
+}
+
+thead {
+	background: black;
+	color: white;
+}
+
+tbody {
+	background: grey;
+	color: white;	
+}
+
+tfoot {
+	background: black;
+	color: black;	
+}

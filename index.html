@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	<title>Expense Tracker</title>
+  	<link rel='stylesheet' href='style.css'>  
+    <script src="script.js"></script>
+  </head>
+  <body>
+  	<header>
+  	  <h1>Expense Tracker</h1>
+  	</header>
+  	<main>
+  	  <ul>	
+  	    <li>
+  	      <label for="date">Date:</label>	
+	      <input type="date" id="date"/>
+	    </li>  
+	    <li>
+	      <label for="desc">Description:</label>	
+	      <input type="text" id="desc"/>
+	    </li>  
+	    <li>
+	      <label for="amount">Amount:</label>	
+	      <input type="text" id="amount"/>
+	    </li>  
+	    <li>
+	      <label for="amount">Location:</label>	
+	      <input type="text" id="location"/>
+	    </li>
+	    <li>
+	      <button id='add' onclick="addExpense()">Add Expense</button>	
+	    </li>  
+	  </ul>
+	  <br>
+	  <br>
+	  <table id='expense-table'>
+	  	<thead>
+	  	  <tr>
+	  	  	<th>ID</th>
+	  	  	<th>DATE</th>
+	  	  	<th>DESC</th>
+	  	  	<th>AMOUNT</th>
+	  	  	<th>LOCATION</th>
+	  	  	<th></th>
+	  	  </tr>	
+	  	</thead>
+	  	<tbody id="data">
+	  	</tbody>
+	  	<tfoot>
+	  	  <tr>
+	  	  	<th>X</th>
+	  	  	<th></th>
+	  	  	<th></th>
+	  	  	<th></th>
+	  	  	<th></th>
+	  	  	<th></th>
+	  	  </tr>		  		
+	  	</tfoot>
+	  </table>
+  	</main>
+  	<footer>
+  	  <h1>Expense Tracker</h1>	
+  	</footer>
+  </body>	
+</html>

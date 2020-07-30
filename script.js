@@ -12,13 +12,19 @@ function padZeroes(id) {
 	}
 }
 
-function addExpense() {
+function deleteExpense(id) {
+	const table = document.getElementById('data');
+	const expense = document.getElementById(id);
+	table.removeChild(expense);
+}
+
+document.getElementById('add').addEventListener('click', function(e) {
 	const expenseID = padZeroes(id);
 	const date = document.getElementById('date').value;
 	const desc = document.getElementById('desc').value;
 	const amount = document.getElementById('amount').value;
 	const location = document.getElementById('location').value;
-    
+
     let tr = document.createElement('tr');
     tr.id = expenseID;
 
@@ -44,22 +50,20 @@ function addExpense() {
 
     let button = document.createElement('button');
 	button.className = 'delete';
-	button.setAttribute('onclick', `deleteExpense('${expenseID}')`);
+	button.addEventListener('click', function(e) {
+		deleteExpense(expenseID);
+	})
 	button.innerHTML = '<strong>X</strong>';
 	tr.appendChild(button);
 
     document.getElementById('data').appendChild(tr);
 
 	id++;
-}
-
-function deleteExpense(id) {
-	const table = document.getElementById('data');
-	const expense = document.getElementById(id);
-	table.removeChild(expense);
-}
+});
 
 //Todos
 //1. Refactor Code
 //2. Add logic that forces user to enter all information into fields
-//3. Finish Styling
+//3. Create expense object
+//4. Make sure $xx.xx styling works
+//5. Finish App Styling

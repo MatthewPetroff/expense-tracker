@@ -13,51 +13,73 @@ function createID(idNum) {
 	}
 }
 
+function createCell(id) {
+	const userInput = document.getElementById(id).value;
+    let cell = document.createElement('td');
+    cell.innerHTML = userInput;
+    return cell;
+}
+
+function createTableHead() {
+	let thead = document.createElement('thead');
+	let tr = document.createElement('tr');
+	let labels = ['ID', 'DATE', 'DESCRIPTION', 'LOCATION', 'AMOUNT', 'RMV']
+	for (let i = 0;  i < labels.length; i++ ) {
+		let td = document.createElement('td')
+		td.innerHTML = labels[i];
+		tr.appendChild(td);
+	}
+	thead.appendChild(tr);
+	document.getElementById('expense-table').appendChild(thead);
+}
+
 function deleteExpense(id) {
 	const table = document.getElementById('data');
 	const expense = document.getElementById(id);
 	table.removeChild(expense);
 }
 
+function clearInputs() {
+	document.getElementById('date').value = '';
+	document.getElementById('desc').value = '';
+	document.getElementById('location').value = '';
+	document.getElementById('amount').value = '';
+}
 document.getElementById('add').addEventListener('click', function(e) {
+    const date = createCell('date');
+    if (date.innerHTML === '') {return;}
+    
+    const desc = createCell('desc');
+    if (desc.innerHTML === '') {return;} 
+    
+    const location = createCell('location');
+    if (location.innerHTML === '') {return;}  
+    
+    const amount = createCell('amount');
+    if (amount.innerHTML === '') {return;}
+    amount.innerHTML = `$${Number(amount.innerHTML).toFixed(2)}`;
+    
+    const deleteButton = document.createElement('button');
+	deleteButton.className = 'delete';
+	deleteButton.addEventListener('click', function(e) {deleteExpense(expenseID);})
+	deleteButton.innerHTML = '<strong>X</strong>';
+	
 	const expenseID = createID(id);
+	if (expenseID === '001') {createTableHead();}
 	
 	let tr = document.createElement('tr');
     tr.id = expenseID;
 
     const rowID = document.createElement('td');
     rowID.innerHTML = expenseID;
-    tr.appendChild(rowID);
 
-	const date = document.getElementById('date').value;
-	if (date === '') {return;}
-    let rowDate = document.createElement('td');
-    rowDate.innerHTML = date;
-    tr.appendChild(rowDate);
-
-	const desc = document.getElementById('desc').value;   
-	if (desc === '') {return;} 
-    let rowDesc = document.createElement('td');
-    rowDesc.innerHTML = desc;
-    tr.appendChild(rowDesc);
-
-    const location = document.getElementById('location').value;
-	if (location === '') {return;}    
-    let rowLocation = document.createElement('td');
-    rowLocation.innerHTML = location;
-    tr.appendChild(rowLocation);
-
-	const amount = document.getElementById('amount').value;
-    if (amount === 0) {return;}
-    let rowAmount = document.createElement('td');
-    rowAmount.innerHTML = `$${Number(amount).toFixed(2)}`;
-    tr.appendChild(rowAmount);
-
-    const deleteButton = document.createElement('button');
-	deleteButton.className = 'delete';
-	deleteButton.addEventListener('click', function(e) {deleteExpense(expenseID);})
-	deleteButton.innerHTML = '<strong>X</strong>';
+	tr.appendChild(rowID);
+	tr.appendChild(date);
+	tr.appendChild(desc);
+	tr.appendChild(location);
+	tr.appendChild(amount);
 	tr.appendChild(deleteButton);
-
     document.getElementById('data').appendChild(tr);
+
+    clearInputs();
 });

@@ -15,25 +15,14 @@
   	  <br>	
       <div class='input'>
         <input type="date" id="date"/>
-      </div>  
-      <div class='input'>
         <input type="text" id="desc" placeholder="Description (e.g. Rent)"/>
-      </div>  
-      <div class='input'>
         <input type="text" id="location" placeholder="Location (e.g. Apex Apartments)"/>
-      </div>  
-      <div class='input'>
-        <input type="number" id="amount" placeholder="Amount in dollars" />
+        <input type="number" id="amount" placeholder="Amount in dollars"/>
       </div>
-      <div class='input'>	
-        <button id='add'><strong>ADD EXPENSE</strong></button>
+      <div class='add'>
+        <button id='add'><strong>ADD EXPENSE</strong></button>        
       </div>
   	  <table id='expense-table'>
-  	  	<thead>
-  	  	  <tr>
-  	  	  	<th>ID</th><th>DATE</th><th>DESCRIPTION</th><th>LOCATION</th><th>AMOUNT</th><th>DLT</th>
-  	  	  </tr>	
-  	  	</thead>
   	  	<tbody id='data'></tbody>
   	  </table>
       <br>

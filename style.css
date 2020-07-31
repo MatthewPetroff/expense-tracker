@@ -25,6 +25,7 @@ table {
 
 thead {
 	background: #3C9D76;
+	text-align: center;
 }
 
 tbody {
@@ -33,10 +34,10 @@ tbody {
 
 input {
 	width: 100%;
+	margin: 2px 0px;
 }
 
 button {
-	border: none;
 	text-align: center;
 	font-size: 16px;
 	background-color: #92D761;
@@ -63,19 +64,26 @@ button {
 }
 
 .input {
-	display: flex;
 	margin: 5px auto;
 	width: 400px;
 }
 
 .delete {
+	border: none;
     color: red;
     width: 100%;
 }
 
+.add {
+	display: flex;
+	margin: 5px auto;
+	width: 400px;
+}
+
 #add {
+	border: #303F3C;
 	color: white;
 	width: 50%;
     padding: 10px 5px;
     margin: 10px auto;
-}
+}    

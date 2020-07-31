@@ -1,37 +1,81 @@
 body {
 	font-family: Arial;
+	margin: 0;
+	color: white;
+	background-color: #303F3C;
 }
 
 header {
-	background: black;
-	color: white;
+	font-size: 40px;
+	text-align: center;
 }
 
 main {
 	background: white;
-	color: black;
+	color: #303F3C;
 }
 
-footer {
-	background: black;
-	color: black;
-}
-
-ul {
-	list-style-type: none;
+table {
+	width: 750px;
+	margin: auto;
+	table-layout: auto;
+	color: white;
+	font-weight: bold;
 }
 
 thead {
-	background: black;
-	color: white;
+	background: #3C9D76;
 }
 
 tbody {
-	background: grey;
-	color: white;	
+	background: #92D761;
 }
 
-tfoot {
-	background: black;
-	color: black;	
+input {
+	width: 100%;
+}
+
+button {
+	border: none;
+	text-align: center;
+	font-size: 16px;
+	background-color: #92D761;
+}
+
+.darker {
+	height: 50px;
+	background-color: #303F3C;
+}
+
+.dark {
+	height: 50px;
+	background-color: #3C9D76;
+}
+
+.light {
+	height: 25px;
+	background-color: #92D761;
+}
+
+.lighter {
+	height: 25px;
+	background-color: #F2DD6A;
+}
+
+.input {
+	display: flex;
+	margin: 5px auto;
+	width: 400px;
+}
+
+.delete {
+    color: red;
+    width: 100%;
+}
+
+#add {
+	color: white;
+	width: 50%;
+    padding: 10px 5px;
+    margin: 10px auto;
 }

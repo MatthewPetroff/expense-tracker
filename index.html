@@ -6,59 +6,43 @@
   </head>
   <body>
   	<header>
-  	  <h1>Expense Tracker</h1>
+  	  <div class='darker'></div>
+  	  <div class='dark'><strong>Expense Tracker</strong></div>	
+  	  <div class='light'></div>
+  	  <div class='lighter'></div>	
   	</header>
   	<main>
-  	  <ul>	
-  	    <li>
-  	      <label for="date">Date:</label>	
-	      <input type="date" id="date"/>
-	    </li>  
-	    <li>
-	      <label for="desc">Description:</label>	
-	      <input type="text" id="desc"/>
-	    </li>  
-	    <li>
-	      <label for="amount">Amount:</label>	
-	      <input type="text" id="amount"/>
-	    </li>  
-	    <li>
-	      <label for="amount">Location:</label>	
-	      <input type="text" id="location"/>
-	    </li>
-	    <li>
-	      <button id='add'>Add Expense</button>
-	    </li>  
-	  </ul>
-	  <br>
-	  <br>
-	  <table id='expense-table'>
-	  	<thead>
-	  	  <tr>
-	  	  	<th>ID</th>
-	  	  	<th>DATE</th>
-	  	  	<th>DESC</th>
-	  	  	<th>AMOUNT</th>
-	  	  	<th>LOCATION</th>
-	  	  	<th></th>
-	  	  </tr>	
-	  	</thead>
-	  	<tbody id="data">
-	  	</tbody>
-	  	<tfoot>
-	  	  <tr>
-	  	  	<th>X</th>
-	  	  	<th></th>
-	  	  	<th></th>
-	  	  	<th></th>
-	  	  	<th></th>
-	  	  	<th></th>
-	  	  </tr>		  		
-	  	</tfoot>
-	  </table>
+  	  <br>	
+      <div class='input'>
+        <input type="date" id="date"/>
+      </div>  
+      <div class='input'>
+        <input type="text" id="desc" placeholder="Description (e.g. Rent)"/>
+      </div>  
+      <div class='input'>
+        <input type="text" id="location" placeholder="Location (e.g. Apex Apartments)"/>
+      </div>  
+      <div class='input'>
+        <input type="number" id="amount" placeholder="Amount in dollars" />
+      </div>
+      <div class='input'>	
+        <button id='add'><strong>ADD EXPENSE</strong></button>
+      </div>
+  	  <table id='expense-table'>
+  	  	<thead>
+  	  	  <tr>
+  	  	  	<th>ID</th><th>DATE</th><th>DESCRIPTION</th><th>LOCATION</th><th>AMOUNT</th><th>DLT</th>
+  	  	  </tr>	
+  	  	</thead>
+  	  	<tbody id='data'></tbody>
+  	  </table>
+      <br>
   	</main>
   	<footer>
-  	  <h1>Expense Tracker</h1>	
+  	  <div class='lighter'></div>
+  	  <div class='light'></div>	
+  	  <div class='dark'></div>
+  	  <div class='darker'></div>	
   	</footer>
   	<script src="script.js"></script>
   </body>	

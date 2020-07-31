@@ -1,7 +1,8 @@
 let id = 1;
 
-function padZeroes(id) {
-	let str = id.toString();
+function createID(idNum) {
+	let str = idNum.toString();
+	id++;
 	switch (str.length) {
 		case 1:
 			return '00' + str;
@@ -19,51 +20,44 @@ function deleteExpense(id) {
 }
 
 document.getElementById('add').addEventListener('click', function(e) {
-	const expenseID = padZeroes(id);
-	const date = document.getElementById('date').value;
-	const desc = document.getElementById('desc').value;
-	const amount = document.getElementById('amount').value;
-	const location = document.getElementById('location').value;
-
-    let tr = document.createElement('tr');
+	const expenseID = createID(id);
+	
+	let tr = document.createElement('tr');
     tr.id = expenseID;
 
-    let tableID = document.createElement('td');
-    tableID.innerHTML = expenseID;
-    tr.appendChild(tableID);
+    const rowID = document.createElement('td');
+    rowID.innerHTML = expenseID;
+    tr.appendChild(rowID);
 
-    let tableDate = document.createElement('td');
-    tableDate.innerHTML = date;
-    tr.appendChild(tableDate);
+	const date = document.getElementById('date').value;
+	if (date === '') {return;}
+    let rowDate = document.createElement('td');
+    rowDate.innerHTML = date;
+    tr.appendChild(rowDate);
 
-    let tableDesc = document.createElement('td');
-    tableDesc.innerHTML = desc;
-    tr.appendChild(tableDesc);
+	const desc = document.getElementById('desc').value;   
+	if (desc === '') {return;} 
+    let rowDesc = document.createElement('td');
+    rowDesc.innerHTML = desc;
+    tr.appendChild(rowDesc);
 
-    let tableAmount = document.createElement('td');
-    tableAmount.innerHTML = amount;
-    tr.appendChild(tableAmount);
+    const location = document.getElementById('location').value;
+	if (location === '') {return;}    
+    let rowLocation = document.createElement('td');
+    rowLocation.innerHTML = location;
+    tr.appendChild(rowLocation);
 
-    let tableLocation = document.createElement('td');
-    tableLocation.innerHTML = location;
-    tr.appendChild(tableLocation);
+	const amount = document.getElementById('amount').value;
+    if (amount === 0) {return;}
+    let rowAmount = document.createElement('td');
+    rowAmount.innerHTML = `$${Number(amount).toFixed(2)}`;
+    tr.appendChild(rowAmount);
 
-    let button = document.createElement('button');
-	button.className = 'delete';
-	button.addEventListener('click', function(e) {
-		deleteExpense(expenseID);
-	})
-	button.innerHTML = '<strong>X</strong>';
-	tr.appendChild(button);
+    const deleteButton = document.createElement('button');
+	deleteButton.className = 'delete';
+	deleteButton.addEventListener('click', function(e) {deleteExpense(expenseID);})
+	deleteButton.innerHTML = '<strong>X</strong>';
+	tr.appendChild(deleteButton);
 
     document.getElementById('data').appendChild(tr);
-
-	id++;
 });
-
-//Todos
-//1. Refactor Code
-//2. Add logic that forces user to enter all information into fields
-//3. Create expense object
-//4. Make sure $xx.xx styling works
-//5. Finish App Styling
